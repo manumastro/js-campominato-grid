@@ -1,0 +1,39 @@
+body{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#main{
+  background-color: rgb(167, 247, 247);
+  height: 100vh;
+}
+
+.em-container{
+  width: 500px;
+  height: 500px;
+  background-color:rgb(142, 198, 247)
+}
+
+.square{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% / 10);
+  height: calc(100% / 10);
+  border: 2px solid white;
+  color: white;
+}
+
+.square span{
+  display: none;
+}
+
+.square.clicked span{
+  display: block;
+}
+
+.square.clicked.even{
+  background-color: rgb(8, 137, 94);
+}
+.square.clicked.odd{
+  background-color: brown;
+}
