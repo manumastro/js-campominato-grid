@@ -9,19 +9,46 @@ const container = document.getElementById('container');
 init();
 
 function init(){
-  for(let i = 0; i < 100; i++){
-    const square = createSquare(container, i);
-    square.addEventListener('click', function(){
+  const select = document.getElementById('difficulty').value;
+  
+
+  if(select === 'facile'){
+    for(let i = 0; i < 100; i++){
+      const square = createSquare(container, i, select);
+      square.addEventListener('click', function(){
       this.classList.add('clicked')
-    })
+      })
+    }
+  }else if(select === 'normale'){
+    for(let i = 0; i < 81; i++){
+      const square = createSquare(container, i, select);
+      square.addEventListener('click', function(){
+      this.classList.add('clicked')
+      })
+    }
+  }else{
+    for(let i = 0; i < 49; i++){
+      const square = createSquare(container, i, select);
+      square.addEventListener('click', function(){
+      this.classList.add('clicked')
+      })
+    }
   }
+  
 }
 
-function createSquare(ctn, n){
+function createSquare(ctn, n, diff){
   const square = document.createElement('div');
   square.className = 'square';
   square.innerHTML = `<span>${n + 1}</span>`;
   square.classList.add(getOddEven(n));
+  if(diff === 'facile'){
+    square.classList.add('square-easy');
+  }else if(diff === 'normale'){
+    square.classList.add('square-normal');
+  }else{
+    square.classList.add('square-hard')
+  }
   ctn.append(square);
   return square;
 }
